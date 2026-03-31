@@ -1,0 +1,46 @@
+process_map:
+  ee_3j:
+    mg_subprocess_name: P0_epem_uuxg
+    mg_born_subprocess_name: P1_epem_uuxg
+    diagrams_file: config/diagrams/eeuug.json
+    vb_ratio_path: ee_3j/0317_183840_vb_ratio
+    real_surr_path: ee_3j/0319_181014_real_emission_3j_singlenet
+    
+  ee_4j:
+    mg_subprocess_name: P0_epem_uuxgg
+    mg_born_subprocess_name: P1_epem_uuxgg
+    diagrams_file: config/diagrams/eeuugg.json
+    vb_ratio_path: ee_4j/0317_205157_test_4j
+    real_surr_path: ee_4j/0317_212443_real_emission_4j_singlenet
+
+mg_subprocess_name: ${integrator.process_map.${process}[mg_subprocess_name]}
+mg_born_subprocess_name: ${integrator.process_map.${process}[mg_born_subprocess_name]}
+diagrams_file: ${integrator.process_map.${process}[diagrams_file]}
+vb_ratio_path:  ${integrator.process_map.${process}[vb_ratio_path]}
+real_surr_path:  ${integrator.process_map.${process}[real_surr_path]}
+
+
+e_cm: 1000.
+
+################################################################################
+########## MG won't allow to use the same apis locally and in cluster ##########
+##################### so modify following line accordingly #####################
+api_base: ${hydra:runtime.cwd}/src/integration/matrix_element/process_api_storage/${process}
+################################################################################
+
+cross_sections:
+  nlo:
+    class: NLOSurrogateCrossSection
+    multithread_cores: 64 # total multithreads
+
+    true_me:
+      loop_me: ${integrator.api_base}/loop/SubProcesses/${integrator.mg_subprocess_name}/api.so
+      soft_me: ${integrator.api_base}/counterterms/SubProcesses/${integrator.mg_subprocess_name}/api_soft_integrated.so
+      coll_me:  ${integrator.api_base}/counterterms/SubProcesses/${integrator.mg_subprocess_name}/api_collinear_integrated.so
+      real_me: ${integrator.api_base}/counterterms/SubProcesses/${integrator.mg_subprocess_name}/api_sreal.so
+      born_me: ${integrator.api_base}/born/SubProcesses/${integrator.mg_born_subprocess_name}/api.so
+    
+    # Surrogate paths
+    surrogate_paths:
+      v_b_ratio: ${hydra:runtime.cwd}/surrogates/${integrator.process_map.${process}[vb_ratio_path]}
+      real_surrogate:  ${hydra:runtime.cwd}/surrogates/${integrator.process_map.${process}[real_surr_path]}

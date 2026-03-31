@@ -1,0 +1,3 @@
+vegas_bins: 64
+vegas_damping: 0.6 # higher value: faster convergence, but noisier
+vegas_batch_size: 10000

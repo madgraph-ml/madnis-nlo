@@ -1,0 +1,20 @@
+task: integrator
+defaults:
+  - _self_
+  - integrator: multichannel   # default integrator config (can be overridden)
+  - hydra
+
+# Define process to integrate
+process: ee_3j
+
+run:
+  type: train        # train | plot
+  name: null
+  path: null
+
+# MadNIS training overrides
+warm_start: false
+
+
+dtype: float64
+seed: null

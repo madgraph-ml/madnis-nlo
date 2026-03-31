@@ -1,0 +1,29 @@
+# Ignore project info files
+*egg-info/ 
+results/
+outputs/
+logs/
+runfiles/
+__pycache__/
+.DS_Store
+.vscode/
+*venv/
+*.ipynb
+*.cmd
+config/*
+# Ignore data files
+*.npy
+
+# Ignore surrogates saved
+surrogates/
+
+# Ignore path to api_folder. Name has to be common for every user
+*process_api_storage*
+
+# Ignore MG extra files generated when compiling
+*additional_command
+*MG5_debug
+*py.py
+*nsqso_born.inc
+makefile
+src/playground/figs/*.pdf

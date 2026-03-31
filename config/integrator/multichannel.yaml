@@ -1,0 +1,91 @@
+# Seed and Threads
+seed: null
+seed_vegas: null
+
+# Run settings
+run:
+  name: integrate
+
+multichannel: true
+single_channel_mode: rambo
+
+# Vegas settings
+vegas: false # enables VEGAS mode (no flow training)
+vegas_pretraining: true # enables VEGAS pretraining
+vegas_iterations: 5
+
+# MadNIS training
+integrand: nlo
+loss: stratified_variance
+lr_scheduler: cosine
+permutations: log
+batch_size_offset: 512
+batch_size_per_channel: 256
+initial_batch_size_per_channel: 0
+lr: 1.e-3
+drop_zero_integrands: true
+batch_size_threshold: 0.6
+log_interval: 10
+train_iterations: 1_000
+uniform_channel_ratio: 0.1
+integration_history_length: 1000
+channel_dropping_threshold: 0.001
+channel_dropping_interval: 300
+fixed_cwnet_fraction: 0.33
+
+# MadNIS buffered training
+buffer_capacity: 0
+minimum_buffer_size: 0
+buffered_steps: 0
+
+# Fade-in real option 
+fade_in: false
+saturation_time: 0.2 # Defines when the real completely kicks in
+gamma_delay: 8.0 # Defines how 'flat' the fade in is. for gamma -> inf this becomes a theta function with step at saturation time
+
+# Integration
+eval_mode: integrate
+eval_cross_section: nlo
+#ref_cross_section: npart
+n_samples: 100_000
+
+# Types of contributions
+train_contributions:
+  born: true
+  virtual: true
+  icts: true
+  real: true
+  V_surr: true
+  R_surr:
+    enabled: true
+
+eval_contributions:
+  born: true
+  virtual: true
+  icts: true
+  real: true
+  V_surr: true
+  R_surr:
+    enabled: true
+
+# FKS singularity cuts — shared by integrated counterterms and real surrogate region.
+# The surrogate is trusted for xi >= xi_cut and y <= (1 - delta_cut).
+cross_sections:
+  nlo:
+    xi_cut: 0.05
+    delta_cut: 0.05
+
+
+# Plotting
+plots:
+  surrogates: true
+  save_samples: false
+  n_samples: 100_000
+
+defaults:
+  - cuts
+  - vegas
+  - madnis
+  - cross_sections_surrogate
+  - default
+  - _self_

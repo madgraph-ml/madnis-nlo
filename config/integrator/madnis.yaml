@@ -1,0 +1,6 @@
+blocks: 1
+layers: 5
+units: 32
+spline_bins: 10
+cwnet_layers: 3
+cwnet_units: 128

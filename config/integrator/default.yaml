@@ -1,0 +1,12 @@
+run:
+  type: train          # train | plot
+  name: null
+
+dtype: float64
+seed: null
+
+eval:
+  mode: integrate
+
+defaults:
+  - _self_
