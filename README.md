@@ -3,7 +3,7 @@
 <a href="https://pytorch.org"><img alt="pytorch" src="https://img.shields.io/badge/PyTorch-2.2-DC583A.svg?style=flat&logo=pytorch"></a>
 <a href="https://hydra.cc/"><img alt="Config style: Hydra" src="https://img.shields.io/badge/Hydra-1.3-78a9c2"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: Black" src="https://img.shields.io/badge/Black-22.3-000000.svg"></a>
-<a href="https://github.com/madgraph-ml/madevent7"><img alt="GitHub: madgraph-ml/madspace" src="https://img.shields.io/badge/madgraph--ml-madspace-181717.svg?logo=github"></a>
+<a href="[https://github.com/MadGraphTeam/MadGraph7/tree/main/madspace]"><img alt="GitHub: madgraph-ml/madspace" src="https://img.shields.io/badge/madgraph--ml-madspace-181717.svg?logo=github"></a>
 <a href="https://github.com/madgraph-ml/torchspace"><img alt="GitHub: madgraph-ml/torchspace" src="https://img.shields.io/badge/madgraph--ml-torchspace-181717.svg?logo=github"></a>
 </a>
 <a href="https://github.com/MadGraphTeam/madnis"><img alt="GitHub: MadGraphTeam/madnis" src="https://img.shields.io/badge/MadGraphTeam-madnis-181717.svg?logo=github"></a>
