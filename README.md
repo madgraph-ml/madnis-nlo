@@ -15,7 +15,7 @@ Start by cloning the current repository
 ```bash
 git clone git@github.com:madgraph-ml/madnis-nlo.git
 ```
-`Python>=3.11` is in principle required to install all the necessary packages, which are available on PyPI for Linux and MacOS X (with Apple Silicon). For details see https://github.com/madgraph-ml/madevent7.
+`Python>=3.11` is in principle required to install all the necessary packages, which are available on PyPI for Linux and MacOS X (with Apple Silicon):
 
 ```bash
 cd madnis-nlo/
