@@ -10,7 +10,7 @@
 </p>
 
 ## Getting started
-Create a new conda environment and install with the following command:
+Start by cloning the current repository 
 
 ```bash
 git clone git@github.com:madgraph-ml/madnis-nlo.git
